@@ -1,6 +1,8 @@
-package peaksoft.config.jwt;
+package crud.config.jwt;
 
 import com.auth0.jwt.exceptions.JWTVerificationException;
+import crud.models.User;
+import crud.repository.UserRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -12,8 +14,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
-import peaksoft.model.User;
-import peaksoft.repository.UserRepository;
 
 import java.io.IOException;
 
@@ -35,15 +35,13 @@ public class JwtFilter extends OncePerRequestFilter {
 
         String headerToken = request.getHeader(HttpHeaders.AUTHORIZATION);
 
-        System.out.println("headerToken = " + headerToken);
-
         String bearer = "Bearer ";
         if (headerToken != null && headerToken.startsWith(bearer)) {
             String token = headerToken.substring(bearer.length());
 
             try {
                 String email = jwtService.verifyToken(token);
-                User user = userRepository.getByEmail(email);
+                User user = userRepository.findByEmail(email);
 
                 SecurityContextHolder.getContext()
                         .setAuthentication(
@@ -59,7 +57,6 @@ public class JwtFilter extends OncePerRequestFilter {
                         "Invalid JWT Token");
             }
         }
-
         filterChain.doFilter(request, response);
     }
 }

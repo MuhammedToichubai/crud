@@ -1,4 +1,4 @@
-package peaksoft.enums;
+package crud.models;
 
 import org.springframework.security.core.GrantedAuthority;
 
@@ -8,7 +8,7 @@ import org.springframework.security.core.GrantedAuthority;
 public enum Role implements GrantedAuthority
  {
     ADMIN,
-    CLIENT;
+    USER;
 
     @Override
     public String getAuthority() {

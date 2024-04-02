@@ -1,4 +1,4 @@
-package peaksoft.config;
+package crud.config;
 
 import io.swagger.v3.oas.models.Components;
 import io.swagger.v3.oas.models.OpenAPI;
@@ -22,7 +22,7 @@ public class SwaggerConfig {
         return  new OpenAPI()
                 .components(new Components()
                         .addSecuritySchemes(API_KEY, apiKeySecurityScheme()))
-                .info(new Info().title("ONLINE SHOP").description("Java 12"))
+                .info(new Info().title("USER CURD").description("simple endpoints"))
 
                 .security(Collections.singletonList(new SecurityRequirement().addList(API_KEY)));
 

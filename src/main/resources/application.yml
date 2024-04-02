@@ -1,3 +1,22 @@
 spring:
     application:
         name: crud
+
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        url: jdbc:postgresql://localhost:5434/deployment
+        username: postgres
+        password: yiman
+
+    jpa:
+        hibernate:
+            ddl-auto: create
+        show-sql: true
+
+server:
+    error:
+        include-stacktrace: always
+
+app:
+    jwt:
+        secret: mukhammed.codes

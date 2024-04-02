@@ -1,4 +1,4 @@
-package peaksoft.dto.response;
+package crud.dto;
 
 import lombok.*;
 import org.springframework.http.HttpStatus;
@@ -13,5 +13,4 @@ import org.springframework.http.HttpStatus;
 public class SimpleResponse {
     private HttpStatus httpStatus;
     private String message;
-
 }

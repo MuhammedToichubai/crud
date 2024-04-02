@@ -2,14 +2,14 @@ version: "3.9"
 services:
   backend:
     image: '#image'
-    container_name: healthcheck
+    container_name: crud
     restart: always
     ports:
       - "80:2024"
     environment:
       SPRING_PROFILES_ACTIVE: main
       SERVER_PORT: 2024
-      POSTGRES_DB: jdbc:postgresql://database:5434/postgres
+      POSTGRES_DB: jdbc:postgresql://database:5432/postgres
       POSTGRES_USER: mukhammed
       POSTGRES_PASSWORD: mukhammed
 
@@ -32,8 +32,8 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_USER: healthcheckuser
-      POSTGRES_PASSWORD: healthcheck11
+      POSTGRES_USER: cruduser
+      POSTGRES_PASSWORD: crudpassword
     volumes:
       - db_data:/var/lib/postgresql/data
 volumes:
