@@ -10,8 +10,8 @@ services:
       SPRING_PROFILES_ACTIVE: main
       SERVER_PORT: 2024
       POSTGRES_DB: jdbc:postgresql://database:5432/postgres
-      POSTGRES_USER: mukhammed
-      POSTGRES_PASSWORD: mukhammed
+      POSTGRES_USER: crud
+      POSTGRES_PASSWORD: crud
 
   activemq:
     image: rmohr/activemq:5.14.0
