@@ -11,6 +11,9 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * @author Mukhammed Asantegin
  */
@@ -20,6 +23,11 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "Auth", description = "Authentication endpoints")
 public class AuthAPI {
     private final AuthService authService;
+
+    @GetMapping
+    public Map<String, String> hi(){
+        return Map.of("Hello", "Mukhammed");
+    }
 
     @PostMapping("/register")
     @Operation(summary = "User registration", description = "Registers a new user.")
