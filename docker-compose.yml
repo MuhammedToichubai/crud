@@ -1,14 +1,14 @@
 version: "3.9"
 services:
   backend:
-    image: '#image'
+    image: '#IMAGE'
     container_name: crud
     restart: always
     ports:
-      - "80:2024"
+      - "80:8080"
     environment:
       SPRING_PROFILES_ACTIVE: main
-      SERVER_PORT: 2024
+      SERVER_PORT: 8080
       POSTGRES_DB: jdbc:postgresql://database:5432/postgres
       POSTGRES_USER: crud
       POSTGRES_PASSWORD: crud
