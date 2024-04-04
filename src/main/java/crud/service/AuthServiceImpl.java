@@ -44,7 +44,7 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public RegisterResponse signUp(RegisterRequest request) {
         boolean exists = userRepo.existsByEmail(request.email());
-        if (exists) throw new RuntimeException(STR."Email : \{request.email()} already exist");
+        if (exists) throw new RuntimeException(String.format("Email : %s already exist",request.email()));
         User user = User.builder()
                 .name(request.name())
                 .email(request.email())
